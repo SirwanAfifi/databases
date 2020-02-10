@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "jest --watch"
+  },
   "dependencies": {
-    "mocha": "^7.0.1",
+    "jest": "^25.1.0",
     "mongoose": "^5.8.11",
     "nodemon": "^2.0.2"
   }
