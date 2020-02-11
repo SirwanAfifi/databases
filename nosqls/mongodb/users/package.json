@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest --runTestsByPath --watch"
   },
   "dependencies": {
     "jest": "^25.1.0",
