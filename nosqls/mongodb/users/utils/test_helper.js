@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
 
-beforeEach(async done => {
-  await mongoose.connect("mongodb://localhost:27017/users_test", {
+beforeAll(done => {
+  mongoose.connect("mongodb://localhost:27017/users_test", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
@@ -17,10 +17,9 @@ beforeEach(async done => {
     });
 });
 
-afterEach(done => {
-  done();
-});
-
-test("should ", done => {
-  done();
+beforeEach(done => {
+  const { users } = mongoose.connection.collections;
+  users.drop(() => {
+    done();
+  });
 });

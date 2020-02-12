@@ -1,3 +1,5 @@
+const helper = require("../utils/test_helper");
+
 const User = require("../src/users");
 
 describe("Creating records", () => {
