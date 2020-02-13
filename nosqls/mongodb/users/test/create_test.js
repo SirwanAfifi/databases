@@ -7,6 +7,7 @@ describe("Creating records", () => {
     const joe = new User({ name: "Joe" });
 
     joe.save().then(() => {
+      expect(joe.isNew).toEqual(false);
       done();
     });
   });
