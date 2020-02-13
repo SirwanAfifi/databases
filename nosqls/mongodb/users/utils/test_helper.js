@@ -24,9 +24,9 @@ beforeEach(done => {
   });
 });
 
-afterEach(done => {
+/*afterEach(done => {
   const { users } = mongoose.connection.collections;
   users.drop(() => {
     done();
   });
-});
+});*/
