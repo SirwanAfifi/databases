@@ -9,9 +9,16 @@ describe("Reading users out of the database", () => {
     joe.save().then(() => done());
   });
 
-  it("finds all users with name of joe", done => {
+  it.skip("finds all users with name of joe", done => {
     User.find({ name: "Joe" }).then(users => {
       expect(users[0].id).not.toBe(joe.id);
+      done();
+    });
+  });
+
+  it("finds a user with a particular id", done => {
+    User.findOne({ _id: joe._id }).then(user => {
+      expect(user.name).toEqual("Joe");
       done();
     });
   });
