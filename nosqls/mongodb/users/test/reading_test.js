@@ -1,7 +1,7 @@
 const helper = require("../utils/test_helper");
 const User = require("../src/users");
 
-describe("Reading users out of the database", () => {
+describe.skip("Reading users out of the database", () => {
   let joe;
 
   beforeEach(done => {
