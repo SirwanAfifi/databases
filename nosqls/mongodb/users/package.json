@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest --runTestsByPath --watch"
+    "test": "nodemon --exec 'jest --runTestsByPath --verbose --detectOpenHandles'"
   },
   "dependencies": {
     "jest": "^25.1.0",

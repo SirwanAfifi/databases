@@ -10,7 +10,6 @@ beforeAll(done => {
   mongoose.connection
     .once("open", () => {
       done();
-      console.log("Good to go!");
     })
     .on("error", error => {
       console.warn("Warning", error);

@@ -11,9 +11,7 @@ describe("Reading users out of the database", () => {
 
   it("finds all users with name of joe", done => {
     User.find({ name: "Joe" }).then(users => {
-      console.log(users[0].id);
-      console.log(joe.id);
-      expect(users[0]._id === joe._id);
+      expect(users[0].id).not.toBe(joe.id);
       done();
     });
   });
