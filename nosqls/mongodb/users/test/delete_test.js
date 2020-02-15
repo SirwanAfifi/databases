@@ -1,7 +1,7 @@
 const helper = require("../utils/test_helper");
 const User = require("../src/users");
 
-describe("Deleting a user", () => {
+describe.skip("Deleting a user", () => {
   let joe;
 
   beforeEach(done => {
