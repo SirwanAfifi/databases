@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: {
     type: String
+  },
+  postCount: {
+    type: Number
   }
 });
 
