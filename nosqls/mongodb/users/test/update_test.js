@@ -41,5 +41,12 @@ describe("Updating records", () => {
     assertName(User.findByIdAndUpdate(joe._id, { name: "Sirwan" }), done);
   });
 
-  it("A user can have their postCount increamneted by 1", done => {});
+  it("A user can have their postCount increamneted by 1", done => {
+    User.update({ name: "Joe" }, { $inc: { postCount: 1 } })
+      .then(() => User.findOne({ name: "Joe" }))
+      .then(user => {
+        expect(user.postCount).toEqual(1);
+        done();
+      });
+  });
 });
