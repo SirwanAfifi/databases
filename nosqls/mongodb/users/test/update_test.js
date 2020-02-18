@@ -1,7 +1,7 @@
 const helper = require("../utils/test_helper");
 const User = require("../src/users");
 
-describe("Updating records", () => {
+describe.skip("Updating records", () => {
   let joe;
 
   beforeEach(done => {
