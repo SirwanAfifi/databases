@@ -16,4 +16,13 @@ describe("Validating records", () => {
     const { message } = validationResult.errors.name;
     expect(message).toEqual("Name must be longer 2 characters.");
   });
+
+  it("disallows invalid records from being saved", done => {
+    const user = new User({ name: "Al" });
+    user.save().catch(validationResult => {
+      const { message } = validationResult.errors.name;
+      expect(message).toEqual("Name must be longer 2 characters.");
+      done();
+    });
+  });
 });
