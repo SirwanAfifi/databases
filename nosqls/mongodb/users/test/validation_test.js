@@ -1,7 +1,7 @@
 const helper = require("../utils/test_helper");
 const User = require("../src/users");
 
-describe("Validating records", () => {
+describe.skip("Validating records", () => {
   it("requires a user name", () => {
     const user = new User({ name: undefined });
     const validationResult = user.validateSync();
