@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const PostSchema = require("./post");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -12,7 +13,8 @@ const UserSchema = new Schema({
   },
   postCount: {
     type: Number
-  }
+  },
+  posts: [PostSchema]
 });
 
 const User = mongoose.model("user", UserSchema);
