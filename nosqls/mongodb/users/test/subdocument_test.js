@@ -33,4 +33,21 @@ describe("Subdocuments", () => {
         done();
       });
   });
+
+  it("can remove an existing", done => {
+    const joe = new User({ name: "Joe", posts: [{ title: "New post" }] });
+    joe
+      .save()
+      .then(() => User.findOne({ name: "Joe" }))
+      .then(user => {
+        const post = user.posts[0];
+        post.remove();
+        return user.save();
+      })
+      .then(() => User.findOne({ name: "Joe" }))
+      .then(user => {
+        expect(user.posts.length).toEqual(0);
+        done();
+      });
+  });
 });
