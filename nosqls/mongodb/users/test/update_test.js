@@ -5,7 +5,7 @@ describe.skip("Updating records", () => {
   let joe;
 
   beforeEach(done => {
-    joe = new User({ name: "Joe", postCount: 0 });
+    joe = new User({ name: "Joe", likes: 0 });
     joe.save().then(() => done());
   });
 
@@ -41,11 +41,11 @@ describe.skip("Updating records", () => {
     assertName(User.findByIdAndUpdate(joe._id, { name: "Sirwan" }), done);
   });
 
-  it("A user can have their postCount increamneted by 1", done => {
-    User.update({ name: "Joe" }, { $inc: { postCount: 1 } })
+  it.skip("A user can have their likes increamneted by 1", done => {
+    User.update({ name: "Joe" }, { $inc: { likes: 1 } })
       .then(() => User.findOne({ name: "Joe" }))
       .then(user => {
-        expect(user.postCount).toEqual(1);
+        expect(user.likes).toEqual(1);
         done();
       });
   });
