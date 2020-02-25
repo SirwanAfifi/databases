@@ -26,7 +26,7 @@ describe("Assocations", () => {
     User.findOne({ name: "Joe" })
       .populate("blogPosts")
       .then(user => {
-        console.log(user);
+        expect(user.blogPosts[0].title).toEqual("JS is Great");
         done();
       });
   });
