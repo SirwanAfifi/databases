@@ -22,11 +22,32 @@ describe("Assocations", () => {
     );
   });
 
-  it.only("saves a relation between a user and a blogpost", done => {
+  it.skip("saves a relation between a user and a blogpost", done => {
     User.findOne({ name: "Joe" })
       .populate("blogPosts")
       .then(user => {
         expect(user.blogPosts[0].title).toEqual("JS is Great");
+        done();
+      });
+  });
+
+  it("saves a full relation tree", done => {
+    User.findOne({ name: "Joe" })
+      .populate({
+        path: "blogPosts",
+        populate: {
+          path: "comments",
+          model: "comment",
+          populate: {
+            path: "user",
+            model: "user"
+          }
+        }
+      })
+      .then(user => {
+        expect(user.blogPosts[0].title).toEqual("JS is Great");
+        expect(user.blogPosts[0].comments[0].content).toEqual("Great post");
+        expect(user.blogPosts[0].comments[0].user.name).toEqual("Joe");
         done();
       });
   });
