@@ -3,7 +3,7 @@ const User = require("../src/users");
 const Comment = require("../src/comment");
 const BlogPost = require("../src/blogPost");
 
-describe("Assocations", () => {
+describe.skip("Assocations", () => {
   let joe, blogPost, comment;
   beforeEach(done => {
     joe = new User({ name: "Joe" });

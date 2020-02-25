@@ -17,19 +17,33 @@ beforeAll(done => {
 });
 
 beforeEach(done => {
-  const { users, comments, blogposts } = mongoose.connection.collections;
-  users.drop(() => {
-    comments.drop(() => {
-      blogposts.drop(() => {
-        done();
-      });
-    });
-  });
+  dropDbs(done);
 });
 
-/*afterEach(done => {
-  const { users } = mongoose.connection.collections;
-  users.drop(() => {
-    done();
-  });
-});*/
+afterEach(done => {
+  dropDbs(done);
+});
+
+function dropDbs(done) {
+  const {
+    users,
+    comments,
+    blogposts,
+    blogcomments
+  } = mongoose.connection.collections;
+
+  users &&
+    users.drop(() => {
+      comments.drop(() => {
+        blogposts.drop(() => {
+          done();
+        });
+      });
+    });
+
+  blogcomments &&
+    blogcomments.drop(() => {
+      console.log("Dropped");
+      done();
+    });
+}
