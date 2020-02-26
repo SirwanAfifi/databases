@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const BlogCommentSchema = new Schema({
   body: String,
-  dateTime: Date,
+  dateTime: { type: Date, default: Date.now },
   replies: [this]
 });
 
