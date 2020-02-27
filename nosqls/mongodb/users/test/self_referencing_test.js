@@ -28,7 +28,12 @@ describe("Self Referencing", () => {
                       body: "Comment 1.2.1.1.1",
                       replies: [
                         new BlogComment({
-                          body: "Comment 1.2.1.1.1.1"
+                          body: "Comment 1.2.1.1.1.1",
+                          replies: [
+                            new BlogComment({
+                              body: "Last comment"
+                            })
+                          ]
                         })
                       ]
                     })
@@ -47,9 +52,10 @@ describe("Self Referencing", () => {
   });
 
   it("shows the tree", done => {
-    BlogComment.findOne({}).then(comment => {
+    BlogComment.findOne({ body: "Comment 1.2" }).then(comment => {
       // expect(comment.body).toEqual("Sirwan's comment");
-      console.log(comment.count);
+      // expect(comment.total).toEqual(8);
+      console.log(comment);
       // console.log(JSON.stringify(comment));
       done();
     });
