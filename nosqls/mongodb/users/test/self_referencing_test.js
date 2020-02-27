@@ -1,7 +1,7 @@
 const helper = require("../utils/test_helper");
 const BlogComment = require("../src/blogComment");
 
-describe("Self Referencing", () => {
+describe.skip("Self Referencing", () => {
   let comment;
   beforeEach(done => {
     comment = new BlogComment({
