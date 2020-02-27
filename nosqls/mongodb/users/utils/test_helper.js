@@ -34,11 +34,13 @@ function dropDbs(done) {
 
   users &&
     users.drop(() => {
-      comments.drop(() => {
-        blogposts.drop(() => {
-          done();
+      comments &&
+        comments.drop(() => {
+          blogposts &&
+            blogposts.drop(() => {
+              done();
+            });
         });
-      });
     });
 
   blogcomments &&
