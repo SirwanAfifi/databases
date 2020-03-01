@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon --exec 'jest --runTestsByPath --verbose --detectOpenHandles'"
   },
   "keywords": [],
   "author": "Sirwan Afifi <sir1afifi@gmail.com>",
@@ -12,6 +12,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "jest": "^25.1.0",
-    "mongoose": "^5.9.2"
+    "mongoose": "^5.9.2",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
   }
 }
