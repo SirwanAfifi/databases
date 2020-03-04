@@ -27,6 +27,7 @@ function dropDbs(done) {
 
   drivers
     .drop()
+    .then(() => drivers.createIndex({ "geometry.coordinates": "2dsphere" }))
     .then(() => done())
     .catch(() => done());
 }
