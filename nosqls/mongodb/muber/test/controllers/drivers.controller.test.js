@@ -1,3 +1,4 @@
+const helper = require("../../utils/test_helper");
 const request = require("supertest");
 const app = require("../../app");
 const Driver = require("../../models/driver");
