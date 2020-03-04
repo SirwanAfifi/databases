@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon --exec 'jest --runTestsByPath --verbose --detectOpenHandles'"
+    "test": "NODE_ENV=test nodemon --exec 'jest --runTestsByPath --verbose --detectOpenHandles'"
   },
   "keywords": [],
   "author": "Sirwan Afifi <sir1afifi@gmail.com>",
